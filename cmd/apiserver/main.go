@@ -4,7 +4,6 @@ import (
 	"flag"
 	"log"
 
-	"github.com/BurntSushi/toml"
 	"github.com/Zothe0/rest-api-go/internal/app/apiserver"
 )
 
@@ -13,15 +12,14 @@ var (
 )
 
 func init() {
-	flag.StringVar(&configPath, "config-path", "configs/apiserver.toml", "path to config file")
+	flag.StringVar(&configPath, "config-path", "configs/apiserver.json", "path to config file")
 }
 
 func main() {
 	flag.Parse()
 
-	config := apiserver.NewConfig()
-	_, err := toml.DecodeFile(configPath, config)
-	if err != nil{
+	config, err := apiserver.NewConfig(configPath)
+	if err != nil {
 		log.Fatal(err)
 	}
 

@@ -1,0 +1,7 @@
+{
+    "bindAddr": ":8080",
+    "logLevel": "debug",
+    "store":{
+        "databaseURL": "host=localhost dbname=serverdb sslmode=disable user=server password=2gLkEdQqhj"
+    }
+}
